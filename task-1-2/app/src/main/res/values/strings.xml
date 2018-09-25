@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">App</string>
+    <string name="email_button">Send email</string>
+    <string name="profile_button">Open profile</string>
+    <string name="person_name">Ivan</string>
+    <string name="hint_profile_note">Заметка о человеке...</string>
+
+    <string name="to_email">tverdov.ks@phystech.edu</string>
+    <string name="email_text">Отправлено из App.</string>
+
+</resources>
