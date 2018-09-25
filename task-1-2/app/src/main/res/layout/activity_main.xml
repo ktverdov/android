@@ -10,11 +10,8 @@
         android:id="@+id/email_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email_button" />
-
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="16dp" />
+        android:text="@string/email_button"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/profile_button"
