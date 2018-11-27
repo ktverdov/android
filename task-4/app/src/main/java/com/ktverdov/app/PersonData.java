@@ -21,16 +21,16 @@ public class PersonData {
     public static void initialize(final Context context) {
         if (!initialized) {
             try {
-                JSONObject obj = new JSONObject(loadJSONFromAsset(context));
-                JSONArray m_jArry = obj.getJSONArray("persons");
+                JSONObject jsonFile = new JSONObject(loadJSONFile(context));
+                JSONArray personList = jsonFile.getJSONArray("persons");
 
-                for (int i = 0; i < m_jArry.length(); i++) {
-                    JSONObject jo_inside = m_jArry.getJSONObject(i);
+                for (int i = 0; i < personList.length(); i++) {
+                    JSONObject person = personList.getJSONObject(i);
 
-                    Long id = jo_inside.getLong("id");
-                    String name = jo_inside.getString("name");
-                    String note = jo_inside.getString("note");
-                    String image = jo_inside.getString("image");
+                    Long id = person.getLong("id");
+                    String name = person.getString("name");
+                    String note = person.getString("note");
+                    String image = person.getString("image");
                     int imageRes = context.getResources().getIdentifier(image, "drawable",
                             context.getPackageName());
 
@@ -45,13 +45,13 @@ public class PersonData {
 
     }
 
-    private static String loadJSONFromAsset(final Context context) {
+    private static String loadJSONFile(final Context context) {
         try {
-            InputStream is = context.getAssets().open("data.json");
-            int size = is.available();
+            InputStream inputStream = context.getAssets().open("data.json");
+            int size = inputStream.available();
             byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
+            inputStream.read(buffer);
+            inputStream.close();
             return new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
